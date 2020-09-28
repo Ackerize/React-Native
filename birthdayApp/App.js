@@ -1,11 +1,15 @@
-import React, { useEffect, useState } from 'react';
-import {StyleSheet, SafeAreaView, Text, StatusBar} from 'react-native';
+import React, {useEffect, useState} from 'react';
+import {
+  StyleSheet,
+  SafeAreaView,
+  StatusBar,
+} from 'react-native';
 import Auth from './src/components/Auth';
 import firebase from './src/utils/firebase';
 import 'firebase/auth';
+import ListBirthday from './src/components/ListBirthday';
 
 const App = () => {
-
   const [user, setUser] = useState(undefined);
 
   useEffect(() => {
@@ -14,24 +18,23 @@ const App = () => {
     });
   }, []);
 
-  if(user === undefined) return null;
+  if (user === undefined) return null;
 
   return (
     <>
-      <StatusBar barStyle="light-content"/>
-      <SafeAreaView style={styles.background} >
-        {user ? <Text> Estas logueado</Text> : <Auth /> }
+      <StatusBar barStyle="light-content" />
+      <SafeAreaView style={styles.background}>
+        {user ? <ListBirthday /> : <Auth />}
       </SafeAreaView>
     </>
-  )
-}
+  );
+};
 
 const styles = StyleSheet.create({
   background: {
-    backgroundColor: "#15212b",
-    height: "100%"
-  }
-})
-
+    backgroundColor: '#15212b',
+    height: '100%',
+  },
+});
 
 export default App;
