@@ -1,8 +1,12 @@
 import React, {useEffect, useState} from 'react';
-import {StyleSheet, Text, ScrollView, View} from 'react-native';
+import {StyleSheet, Text, ScrollView, View, StatusBar} from 'react-native';
 import {Title} from 'react-native-paper';
 import {map} from 'lodash';
-import {getNewsMoviesApi, getAllGenresApi, getGenreMoviesApi} from '../api/movies';
+import {
+  getNewsMoviesApi,
+  getAllGenresApi,
+  getGenreMoviesApi,
+} from '../api/movies';
 import CarouselVertical from '../components/CarouselVertical';
 import CarouselMulti from '../components/CarouselMulti';
 
@@ -55,14 +59,13 @@ const Home = ({navigation}) => {
                 styles.genre,
                 {color: genre.id !== genreSelected ? '#8697a5' : '#fff'},
               ]}
-              onPress={() => onChangeGenre(genre.id)}
-              >
+              onPress={() => onChangeGenre(genre.id)}>
               {genre.name}
             </Text>
           ))}
         </ScrollView>
         {genreMovies && (
-          <CarouselMulti data={genreMovies} navigation={navigation}/>
+          <CarouselMulti data={genreMovies} navigation={navigation} />
         )}
       </View>
     </ScrollView>

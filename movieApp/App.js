@@ -43,6 +43,7 @@ const App = () => {
         theme={theme === 'dark' ? DarkThemePaper : DefaultThemePaper}>
         <StatusBar
           barStyle={theme === 'dark' ? 'ligth-content' : 'dark-content'}
+          backgroundColor={theme === 'dark' ? '#15212b' : '#fff'}
         />
         <NavigationContainer
           theme={
